@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { DatePicker } from "./DatePicker";
 import AppointmentTypeSelector, { AppointmentType } from "./AppointmentTypeSelector";
@@ -75,7 +74,7 @@ export default function AppointmentForm() {
 
       <div className="space-y-8">
         <div className="glass-card p-6 rounded-xl shadow-xl">
-          <h2 className="text-white text-xl font-bold mb-4">
+          <h2 className="text-white text-xl font-bold mb-4 flex items-center">
             <CalendarClock className="inline-block mr-2 text-purple-light" />
             Select a Date
           </h2>
