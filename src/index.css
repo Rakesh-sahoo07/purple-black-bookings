@@ -214,6 +214,13 @@
 
 .calendar-day {
   transition: all 0.2s ease;
+  font-size: 0.875rem;
+  height: 2.25rem !important;
+  width: 2.25rem !important;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .calendar-day:hover:not(.calendar-day-disabled) {
@@ -226,4 +233,12 @@
   color: white !important;
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 640px) {
+  .calendar-day {
+    height: 2rem !important;
+    width: 2rem !important;
+    font-size: 0.75rem;
+  }
 }
