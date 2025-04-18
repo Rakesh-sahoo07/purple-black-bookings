@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
@@ -10,9 +9,9 @@ interface DatePickerProps {
 }
 
 const shinchanImages = [
-  "/shinchan-1.png",
-  "/shinchan-2.png",
-  "/shinchan-3.png"
+  "/shinchan-purple-1.png",  // Shinchan with purple outfit
+  "/shinchan-purple-2.png",  // Shinchan with purple background
+  "/shinchan-purple-3.png"   // Shinchan with purple accessories
 ];
 
 export function DatePicker({ date, setDate }: DatePickerProps) {
@@ -20,7 +19,6 @@ export function DatePicker({ date, setDate }: DatePickerProps) {
 
   React.useEffect(() => {
     if (date) {
-      // Select a random Shinchan image when a date is selected
       setSelectedImageIndex(Math.floor(Math.random() * shinchanImages.length));
     }
   }, [date]);
@@ -71,14 +69,14 @@ export function DatePicker({ date, setDate }: DatePickerProps) {
             <div className="animate-float">
               <img 
                 src={shinchanImages[selectedImageIndex]} 
-                alt="Cute Shinchan cartoon character"
+                alt="Cute Shinchan with purple theme"
                 className="w-64 h-64 object-contain drop-shadow-[0_0_15px_rgba(155,135,245,0.5)]"
               />
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-8 bg-purple/20 blur-xl rounded-full" />
             </div>
           ) : (
             <div className="text-white/30 text-lg italic animate-pulse">
-              Select a date to see a Shinchan surprise! 🎉
+              Select a date to see a purple Shinchan surprise! 💜
             </div>
           )}
         </div>
