@@ -2,7 +2,6 @@
 import * as React from "react";
 import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
-import { cn } from "@/lib/utils";
 import { CalendarDays } from "lucide-react";
 
 interface DatePickerProps {
@@ -10,7 +9,22 @@ interface DatePickerProps {
   setDate: (date: Date | undefined) => void;
 }
 
+const shinchanImages = [
+  "/shinchan-1.png",
+  "/shinchan-2.png",
+  "/shinchan-3.png"
+];
+
 export function DatePicker({ date, setDate }: DatePickerProps) {
+  const [selectedImageIndex, setSelectedImageIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    if (date) {
+      // Select a random Shinchan image when a date is selected
+      setSelectedImageIndex(Math.floor(Math.random() * shinchanImages.length));
+    }
+  }, [date]);
+
   return (
     <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
       <div className="grid lg:grid-cols-2 gap-6 items-start">
@@ -56,15 +70,15 @@ export function DatePicker({ date, setDate }: DatePickerProps) {
           {date ? (
             <div className="animate-float">
               <img 
-                src={`/cartoon-${Math.floor(Math.random() * 3) + 1}.png`} 
-                alt="Cute cartoon character"
+                src={shinchanImages[selectedImageIndex]} 
+                alt="Cute Shinchan cartoon character"
                 className="w-64 h-64 object-contain drop-shadow-[0_0_15px_rgba(155,135,245,0.5)]"
               />
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-8 bg-purple/20 blur-xl rounded-full" />
             </div>
           ) : (
             <div className="text-white/30 text-lg italic animate-pulse">
-              Select a date to see a surprise! 🎉
+              Select a date to see a Shinchan surprise! 🎉
             </div>
           )}
         </div>
